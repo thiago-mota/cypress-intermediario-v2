@@ -1,17 +1,23 @@
 import { faker } from '@faker-js/faker'
 
 describe('Testa a criação de uma nova issue', () => {
+  const issue = {
+    title: `issue-${ faker.datatype.uuid() }`,
+    description: faker.random.words(5),
+    project: {
+      name: `project-${faker.datatype.uuid()}`,
+    }
+  }
+
   beforeEach(() => {
     cy.viewport(1920, 1080)
     cy.login();
+    cy.gui_createProject(issue.project)
   });
 
   it('cria uma nova issue', () => {
-    const issue = {
-      name: `issue-${ faker.datatype.uuid() }`
-    }
     cy.gui_createIssue(issue);
-    cy.get('.gl-button-text').contains('Close issue').should('be.visible');
-
+    cy.get('[data-testid="issue-title"]')
+      .should('contain', issue.title);
   });
 });
