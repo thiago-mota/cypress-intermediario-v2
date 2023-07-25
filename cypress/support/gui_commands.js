@@ -45,9 +45,8 @@ Cypress.Commands.add('gui_createProject', project => {
 })
 
 Cypress.Commands.add('gui_createIssue', issue => {
-  cy.get('a').contains('Issues').should('be.visible').click();
-  cy.get('.gl-button-text').contains('New issue').should('be.visible').click();
-  cy.get('#issue_title').should('be.visible').type(issue.title);
-  cy.get('#issue_description').should('be.visible').type(issue.description)
-  cy.get('.gl-button-text').contains('Create issue').should('be.visible').click();
+  cy.visit(`/${Cypress.env('user_name')}/${issue.project.name}/issues/new`);
+  cy.get('#issue_title').type(issue.title);
+  cy.get('#issue_description').type(issue.description);
+  cy.get('.gl-button-text').contains('Create issue').click();
 });

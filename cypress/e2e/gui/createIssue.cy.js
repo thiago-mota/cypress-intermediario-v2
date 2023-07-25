@@ -1,18 +1,18 @@
-import { faker } from '@faker-js/faker'
+import { faker } from '@faker-js/faker';
 
-describe('Testa a criação de uma nova issue', () => {
+describe('Create issue', () => {
   const issue = {
     title: `issue-${ faker.datatype.uuid() }`,
     description: faker.random.words(5),
     project: {
       name: `project-${faker.datatype.uuid()}`,
     }
-  }
+  };
 
   beforeEach(() => {
     cy.viewport(1920, 1080)
     cy.login();
-    cy.gui_createProject(issue.project)
+    cy.gui_createProject(issue.project);
   });
 
   it('cria uma nova issue', () => {
