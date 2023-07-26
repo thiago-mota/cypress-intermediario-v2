@@ -38,8 +38,8 @@ Cypress.Commands.add('gui_createProject', project => {
   cy.visit('projects/new#blank_project');
 
   cy.get('#project_name').type(project.name);
-  cy.get('#__BVID__177__BV_toggle_').click();
-  cy.get('.gl-dropdown-inner').contains('root').click();
+  cy.get('#blank-project-name [data-qa-selector="select_namespace_dropdown"]').click()
+  cy.get('.gl-dropdown-inner').contains(Cypress.env('user_name')).click();
   cy.get('.custom-control-input').first().check();
   cy.contains('Create project').click();
 })
