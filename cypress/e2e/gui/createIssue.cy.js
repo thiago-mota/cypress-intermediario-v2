@@ -12,7 +12,8 @@ describe('Create issue', () => {
   beforeEach(() => {
     cy.viewport(1920, 1080)
     cy.login();
-    cy.gui_createProject(issue.project);
+    cy.api_deleteProjects();
+    cy.api_createProject(issue.project);
   });
 
   it('cria uma nova issue', () => {

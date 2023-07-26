@@ -2,9 +2,9 @@ import { faker } from '@faker-js/faker';
 
 describe('Create Project', () => {
   beforeEach(() => {
-    cy.api_deleteProjects();
     cy.viewport(1920, 1080);
     cy.login();
+    cy.api_deleteProjects();
   })
 
   it('cria um novo projeto por meio da interface gráfica', () => {  
