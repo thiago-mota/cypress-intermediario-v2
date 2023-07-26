@@ -5,5 +5,6 @@ module.exports = defineConfig({
     baseUrl: 'http://localhost',
   },
   fixturesFolder: false,
+  screenshotsFolder: false,
   video: false,
 })
