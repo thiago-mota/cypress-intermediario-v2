@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker';
-const options = { env: { snapshotOnly: true } };
 
 describe('Create Project', () => {
   beforeEach(() => {
@@ -8,7 +7,7 @@ describe('Create Project', () => {
     cy.login();
   })
 
-  it('cria um novo projeto por meio da interface gráfica', options, () => {  
+  it('cria um novo projeto por meio da interface gráfica', () => {  
     const project = {
       name: `project-${faker.datatype.uuid()}`,
     }
