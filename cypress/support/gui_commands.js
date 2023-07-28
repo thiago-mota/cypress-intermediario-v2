@@ -34,7 +34,7 @@ Cypress.Commands.add('logout', () => {
   cy.contains('Sign out').click();
 });
 
-Cypress.Commands.add('gui_createProject', project => {
+Cypress.Commands.add('gui_createProject', (project) => {
   cy.visit('projects/new#blank_project');
 
   cy.get('#project_name').type(project.name);
@@ -44,9 +44,16 @@ Cypress.Commands.add('gui_createProject', project => {
   cy.contains('Create project').click();
 })
 
-Cypress.Commands.add('gui_createIssue', issue => {
+Cypress.Commands.add('gui_createIssue', (issue) => {
   cy.visit(`/${Cypress.env('user_name')}/${issue.project.name}/issues/new`);
   cy.get('#issue_title').type(issue.title);
   cy.get('#issue_description').type(issue.description);
   cy.get('.gl-button-text').contains('Create issue').click();
 });
+
+Cypress.Commands.add('gui_setLabelOnInssue', (label) => {
+  cy.get('[data-qa-selector="labels_block"] .gl-button-text').click();
+  cy.contains(label.name).click();
+  cy.get('[data-testid="issue-title"]').click();
+  cy.contains(label.name);
+})
