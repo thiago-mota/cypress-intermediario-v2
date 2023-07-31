@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-describe('Set label on issue', () => {
+describe('Set labels on issues', () => {
   const label = {
     name: `label ${faker.random.word(2)}`,
     color: '#ffaabb',
@@ -24,7 +24,7 @@ describe('Set label on issue', () => {
       });
   });
 
-  it('adiciona uma label a issue', () => {
+  it('successfully adds labels from GUI', () => {
     cy.gui_setLabelOnInssue(label);
     cy.get(`[data-qa-label-name="${label.name}"]`)
       .should('be.visible')

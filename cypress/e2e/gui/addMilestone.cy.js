@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-describe('adiciona uma milestone a uma issue', () => {
+describe('Set milestones', () => {
   const issue = {
     title: `issue-${ faker.datatype.uuid() }`,
     description: faker.random.words(5),
@@ -23,7 +23,7 @@ describe('adiciona uma milestone a uma issue', () => {
       });
     });
     
-    it('successfully adds a milestone', () => {
+    it('successfully adds milestones from GUI', () => {
     cy.gui_setMilestoneOnIssue(milestone);
     cy.get('.block.milestone').should('contain', milestone.title)
   });

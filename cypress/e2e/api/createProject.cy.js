@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-describe('Create project', () => {
+describe('Creates projects', () => {
   const project = {
     name: `project${ faker.datatype.uuid() }`
   };
@@ -9,7 +9,7 @@ describe('Create project', () => {
     cy.api_deleteProjects();
   })
 
-  it('cria projeto via API ', () => {
+  it('successfully creates project from API ', () => {
     cy.api_createProject(project)
       .then(response => {
         expect(response.status).to.equal(201);

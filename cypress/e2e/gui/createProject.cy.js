@@ -1,13 +1,13 @@
 import { faker } from '@faker-js/faker';
 
-describe('Create Project', () => {
+describe('Creates Projects', () => {
   beforeEach(() => {
     cy.viewport(1920, 1080);
     cy.api_deleteProjects();
     cy.login();
   })
 
-  it('cria um novo projeto por meio da interface gráfica', () => {  
+  it('successfully creates new projects from GUI', () => {  
     const project = {
       name: `project-${faker.datatype.uuid()}`,
     }
