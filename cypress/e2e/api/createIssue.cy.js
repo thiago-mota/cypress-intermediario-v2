@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-describe('Create issue', () => {
+describe('Creates issues', () => {
   const issue = {
     title: `issue-${ faker.datatype.uuid() }`,
     description: faker.random.words(5),
@@ -13,7 +13,7 @@ describe('Create issue', () => {
     cy.api_deleteProjects()
   });
 
-  it('cria uma issue via API', () => {
+  it('successfully creates issue from API', () => {
     cy.api_createIssue(issue)
       .then((response) => {
         expect(response.status).to.equal(201);

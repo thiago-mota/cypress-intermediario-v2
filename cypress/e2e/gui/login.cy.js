@@ -1,5 +1,5 @@
-describe('Testa as funcionalidades de login e logout', () => {
-  it('é possível logar com sucesso', () => {
+describe('Login', () => {
+  it('successfully login into app', () => {
     cy.viewport(1920, 1080)
     const user = Cypress.env('user_name');
     const password = Cypress.env('user_password');

@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-describe('Create issue', () => {
+describe('Creates issues', () => {
   const issue = {
     title: `issue-${ faker.datatype.uuid() }`,
     description: faker.random.words(5),
@@ -16,7 +16,7 @@ describe('Create issue', () => {
     cy.api_createProject(issue.project);
   });
 
-  it('cria uma nova issue', () => {
+  it('successfully creates and adds issues from GUI', () => {
     cy.gui_createIssue(issue);
     cy.get('[data-testid="issue-title"]')
       .should('contain', issue.title);
