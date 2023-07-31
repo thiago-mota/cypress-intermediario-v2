@@ -8,7 +8,7 @@ describe('adiciona uma milestone a uma issue', () => {
       name: `project-${faker.datatype.uuid()}`,
     },
   };
-
+  
   const milestone = {
     title: `milestone-${faker.random.word(2)}`,
   }
@@ -21,10 +21,10 @@ describe('adiciona uma milestone a uma issue', () => {
         cy.api_createMilestone(response.body.project_id, milestone);
         cy.visit(`${Cypress.env('user_name')}/${issue.project.name}/issues/${response.body.iid}`);
       });
-  });
-  
-  it('successfully adds a milestone', () => {
+    });
+    
+    it('successfully adds a milestone', () => {
     cy.gui_setMilestoneOnIssue(milestone);
-    cy.get('[data-testid="sidebar-milestones"]').should('contain', milestone.title)
+    cy.get('.block.milestone').should('contain', milestone.title)
   });
 });
