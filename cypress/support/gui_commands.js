@@ -57,3 +57,10 @@ Cypress.Commands.add('gui_setLabelOnInssue', (label) => {
   cy.get('[data-testid="issue-title"]').click();
   cy.contains(label.name);
 })
+
+Cypress.Commands.add('gui_setMilestoneOnIssue', (milestone) => {
+  cy.get('[data-qa-selector="milestone_block"] .gl-button-text').click()
+  cy.contains(milestone.title).click()
+  cy.get('[data-testid="issue-title"]').click();
+  cy.contains(milestone.title);
+});
