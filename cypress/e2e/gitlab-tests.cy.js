@@ -1,0 +1,9 @@
+import './gui/login.cy';
+import './gui/logout.cy';
+import './api/createProject.cy';
+import './cli/gitClone.cy';
+import './api/createIssue.cy';
+import './gui/createProject.cy';
+import './gui/createIssue.cy';
+import './gui/addMilestone.cy';
+import './gui/addLabel.cy';
